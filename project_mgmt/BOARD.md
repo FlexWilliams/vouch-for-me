@@ -18,9 +18,9 @@
 
 [Tasks](./TASKS.md)
 
-### Current Task:
+### Current Task: VOUCH-002 - Deploy to fly.io dev env
 
-[Link](./TASKS.md#project_abbreviation-task_number---task_title)
+[Link](./TASKS.md#vouch-002---deploy-to-flyio-dev-env)
 
 ## Tech Debt
 

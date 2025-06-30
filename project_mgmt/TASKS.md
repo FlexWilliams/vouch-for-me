@@ -29,7 +29,7 @@ Verified By cube on: 6/29/25
 
 <br>
 
-## VOUCH-001 - Sign-in via email page (non-func, display only)
+## (Complete) VOUCH-001 - Sign-in via email page (non-func, display only)
 
 ### Description:
 
@@ -37,7 +37,7 @@ Verified By cube on: 6/29/25
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 6/29/25
 
 <br>
 
