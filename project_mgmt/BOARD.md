@@ -26,7 +26,6 @@
 
 [Tech Debt](./TECH-DEBT.md)
 
-
 ## Retro Boards
 
 [Retro Boards](./RETROS.md)

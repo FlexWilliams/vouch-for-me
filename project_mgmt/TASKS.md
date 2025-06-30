@@ -5,7 +5,6 @@
 <br>
 
 - AC MODIFICATION Types
-
   - [AC-MOD_NOT-POSSIBLE-ALT-SOLUTION]
 
 - REJECTION Types
@@ -24,9 +23,7 @@
 
 - Sveltekit for now...
 
-
 ### Acceptance Criteria:
-
 
 Verified By <> on:
 
@@ -40,7 +37,6 @@ Verified By <> on:
 
 ### Acceptance Criteria:
 
-
 Verified By <> on:
 
 <br>
@@ -52,7 +48,6 @@ Verified By <> on:
 ^^
 
 ### Acceptance Criteria:
-
 
 Verified By <> on:
 
@@ -73,7 +68,6 @@ store in local storage, add sign-out button to remove
 
 ### Acceptance Criteria:
 
-
 Verified By <> on:
 
 <br>
@@ -91,7 +85,6 @@ later on the user's first visit will be store in the backend somehow, for now co
 
 ### Acceptance Criteria:
 
-
 Verified By <> on:
 
 <br>
@@ -105,7 +98,6 @@ Verified By <> on:
 mock up cards, list/detail views, request items (not saved)
 
 ### Acceptance Criteria:
-
 
 Verified By <> on:
 
@@ -121,7 +113,6 @@ Verified By <> on:
 -inventory
 
 ### Acceptance Criteria:
-
 
 Verified By <> on:
 
@@ -139,7 +130,6 @@ Verified By <> on:
 
 ### Acceptance Criteria:
 
-
 Verified By <> on:
 
 <br>
@@ -154,7 +144,6 @@ Verified By <> on:
 - planning to make these for non-profit or free ad-runs locally...
 
 ### Acceptance Criteria:
-
 
 Verified By <> on:
 
@@ -172,7 +161,6 @@ Verified By <> on:
 
 ### Acceptance Criteria:
 
-
 Verified By <> on:
 
 <br>
@@ -189,7 +177,6 @@ Verified By <> on:
 
 ### Acceptance Criteria:
 
-
 Verified By <> on:
 
 <br>
@@ -204,7 +191,6 @@ Verified By <> on:
 
 ### Acceptance Criteria:
 
-
 Verified By <> on:
 
 <br>
@@ -218,7 +204,6 @@ Verified By <> on:
 - hard to proceed further without, but will help solidify app!
 
 ### Acceptance Criteria:
-
 
 Verified By <> on:
 
