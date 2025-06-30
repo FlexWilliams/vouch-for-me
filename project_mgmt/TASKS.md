@@ -15,7 +15,7 @@
 
 <br>
 
-## VOUCH-000 - Project scaffolding
+## (Complete) VOUCH-000 - Project scaffolding
 
 ### Description:
 
@@ -25,7 +25,7 @@
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 6/29/25
 
 <br>
 
