@@ -5,20 +5,20 @@
 
 	let loading: boolean = $state(false);
 
-    // TODO: handle via svelte
+	// TODO: handle via svelte
 	async function handleFormSubmit(): Promise<void> {
 		console.log(email);
 
 		loading = true;
 
-        // TODO: impl during VOUCH-003, mocking for now
+		// TODO: impl during VOUCH-003, mocking for now
 		setTimeout(() => {
 			loading = false;
 		}, 2000);
 	}
 </script>
 
-<form class="form" name="sign-in-form" on:submit={() => handleFormSubmit()}>
+<form class="form" name="sign-in-form" onsubmit={() => handleFormSubmit()}>
 	<section class="form-field">
 		<label for="email"><span class="form-field-required">*</span>Email:</label>
 		<input id="email" type="email" bind:value={email} />
@@ -37,7 +37,7 @@
 </form>
 
 <style lang="scss">
-	@import '../lib/styles/animations/spin.scss';
+	@use '../lib/styles/animations/spin';
 
 	.form {
 		max-width: 36rem;
@@ -95,6 +95,6 @@
 		position: absolute;
 		right: 1rem;
 
-		@include spin360;
+		@include spin.spin360;
 	}
 </style>
