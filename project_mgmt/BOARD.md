@@ -18,9 +18,9 @@
 
 [Tasks](./TASKS.md)
 
-### Current Task: VOUCH-002 - Deploy to fly.io dev env
+### Current Task: VOUCH-003 - Simulate email auth flow
 
-[Link](./TASKS.md#vouch-002---deploy-to-flyio-dev-env)
+[Link](./TASKS.md#vouch-003---simulate-email-auth-flow)
 
 ## Tech Debt
 

@@ -41,7 +41,7 @@ Verified By cube on: 6/29/25
 
 <br>
 
-## VOUCH-002 - Deploy to fly.io dev env
+## (Complete) VOUCH-002 - Deploy to fly.io dev env
 
 ### Description:
 
@@ -49,7 +49,7 @@ Verified By cube on: 6/29/25
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 6/29/25
 
 <br>
 
