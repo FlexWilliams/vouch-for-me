@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageProps } from './$types';
 
@@ -16,6 +16,18 @@
 			const route = e.from?.route?.id;
 			if (route === '/home') {
 				ToastrService.alert(`Successfully signed out!`);
+			}
+		});
+	});
+
+	$effect(() => {
+		if (!form?.error) {
+			return;
+		}
+
+		untrack(() => {
+			if (form.error === 'Not registered') {
+				ToastrService.alert('Email not registered');
 			}
 		});
 	});
