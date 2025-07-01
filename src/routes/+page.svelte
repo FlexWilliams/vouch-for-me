@@ -1,27 +1,21 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import type { PageProps } from './$types';
 
 	let email: string = $state('');
 
 	let loading: boolean = $state(false);
 
-	// TODO: handle via svelte
-	async function handleFormSubmit(): Promise<void> {
-		console.log(email);
-
-		loading = true;
-
-		// TODO: impl during VOUCH-003, mocking for now
-		setTimeout(() => {
-			loading = false;
-		}, 2000);
-	}
+	let { form }: PageProps = $props();
 </script>
 
-<form class="form" name="sign-in-form" onsubmit={() => handleFormSubmit()}>
+<form name="sign-in-form" method="POST" action="?/signInViaEmail">
 	<section class="form-field">
+		{#if form?.emailMissing}
+			<p class="form-field-error">The email field is required</p>
+		{/if}
 		<label for="email"><span class="form-field-required">*</span>Email:</label>
-		<input id="email" type="email" bind:value={email} />
+		<input id="email" type="email" name="email" bind:value={email} />
 	</section>
 	<button type="submit" class="submit-button" disabled={!email || loading}
 		>Send Magic Link
@@ -39,7 +33,7 @@
 <style lang="scss">
 	@use '../lib/styles/animations/spin';
 
-	.form {
+	form {
 		max-width: 36rem;
 		align-self: center;
 		width: 100%;
@@ -67,6 +61,10 @@
 	.form-field-required {
 		color: red;
 		margin-right: 0.5rem;
+	}
+
+	.form-field-error {
+		color: red;
 	}
 
 	.submit-button {

@@ -1,14 +1,34 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import '../app.css';
+	import { goto } from '$app/navigation';
+	import { Logger } from '$lib/logging/logger';
 
-	let { children } = $props();
+	let { children, data } = $props();
+
+	onMount(() => {
+		if (data?.user?.id) {
+			goto('/home');
+		}
+	});
+
+	async function handleSignOut(): Promise<void> {
+		data.user = undefined;
+		await goto('/auth/sign-out', {invalidateAll: true});
+	}
 </script>
 
 <header>
 	<a href="/"><h1>Vouch for Me</h1></a>
+
+	{#if data.user?.id}
+		<button type="submit" onclick={() => handleSignOut()}>Sign Out</button>
+	{/if}
 </header>
 <main>
-	{@render children()}
+	{#await data then _}
+		{@render children()}
+	{/await}
 </main>
 <footer></footer>
 
@@ -44,5 +64,17 @@
 	footer {
 		height: 25%;
 		width: 100%;
+	}
+
+	button {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+		max-width: 10rem;
+		display: flex;
+		align-self: flex-end;
+		padding: 0.25rem 1rem;
+		background-color: white;
+		border-radius: 4rem;
 	}
 </style>
