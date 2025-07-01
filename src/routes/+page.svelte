@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
+	import { VibrationService } from '$lib/utils/vibration-service';
 	import { onMount, untrack } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageProps } from './$types';
@@ -41,7 +42,11 @@
 		<label for="email"><span class="form-field-required">*</span>Email:</label>
 		<input id="email" type="email" name="email" bind:value={email} />
 	</section>
-	<button type="submit" class="submit-button" disabled={!email || loading}
+	<button
+		type="submit"
+		class="submit-button"
+		disabled={!email || loading}
+		onclick={() => VibrationService.vibrate()}
 		>Send Magic Link
 		{#if loading}
 			<img

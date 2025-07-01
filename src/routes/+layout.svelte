@@ -4,6 +4,7 @@
 	import { afterNavigate, goto } from '$app/navigation';
 	import { Logger } from '$lib/logging/logger';
 	import Toastr from '$lib/notification/toastr/components/Toastr.svelte';
+	import { VibrationService } from '$lib/utils/vibration-service';
 
 	let { children, data } = $props();
 
@@ -14,6 +15,7 @@
 	});
 
 	async function handleSignOut(): Promise<void> {
+		VibrationService.vibrate();
 		data.user = undefined;
 		await goto('/auth/sign-out', { invalidateAll: true });
 	}
