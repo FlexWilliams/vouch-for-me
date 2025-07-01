@@ -18,9 +18,9 @@
 
 [Tasks](./TASKS.md)
 
-### Current Task: VOUCH-003 - Simulate email auth flow
+### Current Task: View invitee inventory or profile setup (non-func, display only)
 
-[Link](./TASKS.md#vouch-003---simulate-email-auth-flow)
+[Link](./TASKS.md#vouch-004---view-invitee-inventory-or-profile-setup-non-func-display-only)
 
 ## Tech Debt
 

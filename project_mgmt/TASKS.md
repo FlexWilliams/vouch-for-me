@@ -53,7 +53,7 @@ Verified By cube on: 6/29/25
 
 <br>
 
-## VOUCH-003 - Simulate email auth flow
+## (Complete) VOUCH-003 - Simulate email auth flow
 
 ### Description:
 
@@ -62,13 +62,13 @@ Verified By cube on: 6/29/25
 Until a more permanent auth provider is actually used (firebase, supabase, self-hosted...),
 simulate the email link sign-in flow via svelte-kit auth layouts/locals
 
-Return a simple user object (uuid, email, invitee_uid, invitee_display_name)
+Return a simple user object (uuid, ~~~email~~~, invitee_uid, ~~~invitee_display_name~~~)
 
 store in local storage, add sign-out button to remove
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 6/30/25
 
 <br>
 
