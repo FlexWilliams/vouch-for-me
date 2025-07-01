@@ -63,5 +63,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"rxjs": "^7.8.2"
 	}
 }

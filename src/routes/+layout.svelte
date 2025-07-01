@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '../app.css';
-	import { goto } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { Logger } from '$lib/logging/logger';
+	import Toastr from '$lib/notification/toastr/components/Toastr.svelte';
 
 	let { children, data } = $props();
 
@@ -14,9 +15,11 @@
 
 	async function handleSignOut(): Promise<void> {
 		data.user = undefined;
-		await goto('/auth/sign-out', {invalidateAll: true});
+		await goto('/auth/sign-out', { invalidateAll: true });
 	}
 </script>
+
+<Toastr />
 
 <header>
 	<a href="/"><h1>Vouch for Me</h1></a>

@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
+	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageProps } from './$types';
 
@@ -7,6 +10,15 @@
 	let loading: boolean = $state(false);
 
 	let { form }: PageProps = $props();
+
+	onMount(() => {
+		afterNavigate((e) => {
+			const route = e.from?.route?.id;
+			if (route === '/home') {
+				ToastrService.alert(`Successfully signed out!`);
+			}
+		});
+	});
 </script>
 
 <form name="sign-in-form" method="POST" action="?/signInViaEmail">
