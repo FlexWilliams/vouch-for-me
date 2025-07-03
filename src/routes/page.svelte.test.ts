@@ -4,11 +4,15 @@ import { render } from 'vitest-browser-svelte';
 import Page from './+page.svelte';
 
 describe('/+page.svelte', () => {
-	it('should render title', async () => {
+	it('should render email sign-in form', async () => {
 		render(Page);
 
-		const heading = page.getByRole('heading', { level: 1 });
-		await expect.element(heading).toBeInTheDocument();
-		await expect.element(page.getByText('Vouch for Me')).toBeVisible();
+		const emailControl = page.getByLabelText('Email:');
+		await expect.element(emailControl).toBeInTheDocument();
+		await expect.element(emailControl).toBeVisible();
+
+		const submitButton = page.getByRole('button', { name: 'Send Magic Link' });
+		await expect.element(submitButton).toBeVisible();
+		await expect.element(submitButton).toBeDisabled();
 	});
 });
