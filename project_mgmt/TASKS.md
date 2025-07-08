@@ -85,7 +85,7 @@ later on the user's first visit will be store in the backend somehow, for now co
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 7/7/25
 
 <br>
 

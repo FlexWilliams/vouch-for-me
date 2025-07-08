@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
+	import gearIcon from '$lib/assets/images/gear.svg';
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
 	import { VibrationService } from '$lib/utils/vibration-service';
 	import { onMount, untrack } from 'svelte';
@@ -10,12 +11,17 @@
 
 	let loading: boolean = $state(false);
 
-	let { form }: PageProps = $props();
+	let { form, data }: PageProps = $props();
 
 	onMount(() => {
 		afterNavigate((e) => {
 			const route = e.from?.route?.id;
-			if (route === '/home') {
+
+			if (!route) {
+				return;
+			}
+
+			if (route !== '/' && !data.user) {
 				ToastrService.alert(`Successfully signed out!`);
 			}
 		});
@@ -50,7 +56,7 @@
 		>Send Magic Link
 		{#if loading}
 			<img
-				src="/images/gear.png"
+				src={gearIcon}
 				alt="Loading..."
 				class="loading"
 				transition:fade={{ delay: 100, duration: 250 }}

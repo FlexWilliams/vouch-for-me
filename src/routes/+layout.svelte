@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import A11ySettingsToggle from '$lib/a11y/components/Ally-settings.svelte';
 	import Header from '$lib/layout/components/Header.svelte';
 	import Toastr from '$lib/notification/toastr/components/Toastr.svelte';
@@ -9,9 +9,14 @@
 	let { children, data } = $props();
 
 	onMount(() => {
-		if (data?.user?.id) {
-			goto('/home');
-		}
+		afterNavigate((e) => {
+			const route = e.to?.route?.id;
+			if (route === '/home' && !data?.user?.id) {
+				goto('/');
+			} else if (route === '/' && data?.user?.id) {
+				goto('/home');
+			}
+		});
 	});
 </script>
 

@@ -56,6 +56,6 @@
 		align-self: flex-end;
 		padding: 0.25rem 1rem;
 		background-color: white;
-		border-radius: 4rem;
+		border-radius: 0.5rem;
 	}
 </style>

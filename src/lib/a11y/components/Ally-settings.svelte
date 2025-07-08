@@ -1,4 +1,5 @@
 <script lang="ts">
+	import allyIcon from '$lib/assets/images/universal-access.svg';
 	import { fade } from 'svelte/transition';
 	import { allyState } from '../state/ally-state.svelte';
 	import AllySettingsToggle from './Ally-settings-toggle.svelte';
@@ -13,7 +14,7 @@
 	aria-label="Open accessibility settings"
 	onclick={() => (toggleA11ySettings = !toggleA11ySettings)}
 >
-	<img src="images/universal-access.svg" alt={`Universal person icon`} />
+	<img src={allyIcon} alt={`Universal person icon`} />
 </button>
 {#if toggleA11ySettings}
 	<div class="ally-settings-container" transition:fade={{ duration: toggleAnimations ? 400 : 0 }}>

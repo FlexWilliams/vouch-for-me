@@ -49,9 +49,11 @@
 {/if}
 
 <style lang="scss">
+	@use '$lib/styles/overlay/z-index.scss';
+
 	dialog {
 		position: absolute;
-		z-index: 2; // TODO: make variable
+		z-index: z-index.$toastr-z-index;
 		display: flex;
 		align-items: center;
 		justify-content: center;

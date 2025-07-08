@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import arrowIcon from '$lib/assets/images/arrow.svg';
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
 	import { onMount } from 'svelte';
 	import type { PageProps } from './$types';
@@ -23,7 +24,7 @@
 		<li>
 			<button onclick={() => goto(`/user/${data?.user?.id}/profile`)}>Continue Profile Setup</button
 			>
-			<img src="/images/arrow.svg" alt="Arrow icon" class="profile-setup-arrow" />
+			<img src={arrowIcon} alt="Arrow icon" class="profile-setup-arrow" />
 		</li>
 	</ul>
 {/if}
@@ -42,13 +43,8 @@
 		background-color: white;
 		margin-bottom: 2rem;
 		border-radius: 1rem;
-
 		display: flex;
 		justify-content: center;
-
-		button {
-			@include fonts.chango;
-		}
 	}
 
 	img.profile-setup-arrow {

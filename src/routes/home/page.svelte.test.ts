@@ -11,7 +11,7 @@ describe('/home/+page.svelte', () => {
 			props: {
 				data: {
 					user
-				},
+				}
 			}
 		});
 
