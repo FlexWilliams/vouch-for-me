@@ -35,7 +35,6 @@ export default defineConfig(({ mode }) => ({
 	},
 	resolve: {
 		// Uncomment to get layout test working but breaks dev build somehow
-		
-		// conditions: mode === 'test' ? ['browser'] : [] 
+		// conditions: mode === 'test' ? ['browser'] : []
 	}
 }));

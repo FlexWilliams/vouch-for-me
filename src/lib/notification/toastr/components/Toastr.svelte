@@ -6,7 +6,7 @@
 
 	const defaultToastrDuration = 2000;
 
-	const subsciprtions: Subscription[] = [];
+	const subscriptions: Subscription[] = [];
 
 	let toastr: ToastrConfig | null = $state(null);
 
@@ -34,17 +34,17 @@
 	}
 
 	onMount(() => {
-		subsciprtions.push(listenForToastrMessages());
+		subscriptions.push(listenForToastrMessages());
 	});
 
 	onDestroy(() => {
-		subsciprtions.forEach((sub) => sub.unsubscribe());
+		subscriptions.forEach((sub) => sub.unsubscribe());
 	});
 </script>
 
 {#if toast && toastr}
 	<dialog id="notification-toastr" in:fly={{ y: -200 }} out:fade>
-		<p>{toastr.message}</p>
+		<p>{toastr?.message}</p>
 	</dialog>
 {/if}
 

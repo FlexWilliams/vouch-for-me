@@ -1,12 +1,15 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import '../app.css';
-	import { afterNavigate, goto } from '$app/navigation';
-	import { Logger } from '$lib/logging/logger';
+	import { goto } from '$app/navigation';
+	import A11ySettingsToggle from '$lib/a11y/components/Ally-settings.svelte';
+	import { allyState } from '$lib/a11y/state/ally-state.svelte';
 	import Toastr from '$lib/notification/toastr/components/Toastr.svelte';
 	import { VibrationService } from '$lib/utils/vibration-service';
+	import { onMount } from 'svelte';
+	import '../app.css';
 
 	let { children, data } = $props();
+
+	let toggleAnimations = $derived(allyState.toggleAnimations);
 
 	onMount(() => {
 		if (data?.user?.id) {
@@ -21,10 +24,11 @@
 	}
 </script>
 
+<A11ySettingsToggle />
 <Toastr />
 
 <header>
-	<a href="/"><h1>Vouch for Me</h1></a>
+	<a href="/"><h1><span class:no-animate={!toggleAnimations}>Vouch for Me</span></h1></a>
 
 	{#if data.user?.id}
 		<button type="submit" onclick={() => handleSignOut()}>Sign Out</button>
@@ -38,6 +42,8 @@
 <footer></footer>
 
 <style lang="scss">
+	@use '../lib/styles/animations/float';
+
 	header {
 		height: 25%;
 		width: 100%;
@@ -55,6 +61,14 @@
 		font-size: 2rem;
 		font-weight: bold;
 		color: #ede7f6;
+
+		span {
+			@include float.floating;
+		}
+
+		span.no-animate {
+			animation-play-state: paused;
+		}
 	}
 
 	main {
