@@ -26,9 +26,10 @@
 
 <style lang="scss">
 	@use '../../styles/animations/float';
+	@use '../../styles/fonts/fonts';
 
 	h1 {
-		font-family: 'Chango-Regular', sans-serif;
+		@include fonts.chango;
 		padding: 2rem;
 		display: flex;
 		justify-content: center;

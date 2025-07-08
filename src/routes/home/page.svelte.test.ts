@@ -11,11 +11,11 @@ describe('/home/+page.svelte', () => {
 			props: {
 				data: {
 					user
-				}
+				},
 			}
 		});
 
-		const welcomeText = page.getByText(`Welcome ${user.id}!`);
-		await expect.element(welcomeText).toBeVisible();
+		await expect.element(page.getByText(`View Your Invitee's Inventory?`)).toBeVisible();
+		await expect.element(page.getByText(`Continue Profile Setup`)).toBeVisible();
 	});
 });
