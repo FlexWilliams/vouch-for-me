@@ -14,8 +14,9 @@ export const load: PageServerLoad = async ({ cookies }) => {
 
 	// TODO: get from backend, auth token...
 	const user: User = {
-		id: crypto.randomUUID(),
-		inviteeId: crypto.randomUUID()
+		id: '6990517c-fc07-49dd-9857-e306e25f676c',
+		inviteeId: '515b4b88-b942-4d62-918b-f35d393c0dd9',
+		name: 'Alex'
 	};
 
 	return {

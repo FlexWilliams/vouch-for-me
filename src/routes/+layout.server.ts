@@ -9,7 +9,8 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 
 	if (sessionsId) {
 		user = {
-			id: sessionsId
+			id: sessionsId,
+			name: 'Alex'
 		};
 	}
 

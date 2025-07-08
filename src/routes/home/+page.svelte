@@ -9,7 +9,7 @@
 
 	onMount(() => {
 		if (data?.user?.id) {
-			ToastrService.alert(`Welcome ${data.user.id}!`); // TODO: store in session storage
+			ToastrService.alert(`Welcome back ${data.user.name}!`); // TODO: store in session storage
 		}
 	});
 </script>

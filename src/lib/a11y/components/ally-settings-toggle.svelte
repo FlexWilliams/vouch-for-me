@@ -1,52 +1,52 @@
 <script lang="ts">
-	import { allyState, allyState$$toggleAnimations } from '../state/ally-state.svelte';
+	import allyIcon from '$lib/assets/images/universal-access.svg';
+	import { fade } from 'svelte/transition';
+	import { allyState } from '../state/ally-state.svelte';
+	import AllySettings from './Ally-settings.svelte';
 
-	let { closeAllySettings } = $props();
+	let toggleA11ySettings = $state(false);
 
 	let toggleAnimations = $derived(allyState.toggleAnimations);
-
-	function handleToggleAnimationsChange(): void {
-		allyState$$toggleAnimations(toggleAnimations);
-	}
 </script>
 
-<form name="accessibility-settings">
-	<h3>Accessibility Settings</h3>
-
-	<label for="animations">Toggle Animations?</label>
-	<input
-		id="animations"
-		name="animations"
-		type="checkbox"
-		bind:checked={toggleAnimations}
-		onchange={handleToggleAnimationsChange}
-	/>
-</form>
-
-<button type="button" aria-label="Close accessibility settings" onclick={() => closeAllySettings()}>
-	X
+<button
+	type="button"
+	aria-label="Open accessibility settings"
+	onclick={() => (toggleA11ySettings = !toggleA11ySettings)}
+>
+	<img src={allyIcon} alt={`Universal person icon`} />
 </button>
+{#if toggleA11ySettings}
+	<div class="ally-settings-container" transition:fade={{ duration: toggleAnimations ? 400 : 0 }}>
+		<AllySettings closeAllySettings={() => (toggleA11ySettings = false)} />
+	</div>
+{/if}
 
 <style lang="scss">
-	form {
-		padding: 2rem 0;
-	}
-
-	h3 {
-		font-size: 1.5rem;
-		margin-bottom: 1rem;
-	}
-
 	button {
 		background-color: transparent;
 		border: none;
 		border-radius: 10rem;
 		position: absolute;
-		bottom: 4rem;
+		bottom: 2rem;
 		right: 2rem;
+	}
+
+	img {
 		width: 4rem;
 		height: 4rem;
 		border: none;
 		border-radius: 10rem;
+	}
+
+	.ally-settings-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 2rem;
+		background-color: #cdcdcded;
+		z-index: 2; // TODO: make constant
+		width: 100%;
+		height: 100%;
 	}
 </style>

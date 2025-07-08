@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { allyState } from '$lib/a11y/state/ally-state.svelte';
 	import macbook from '$lib/assets/images/inventory-items/2019_macbook_pro_16gb.png';
 	import cooler from '$lib/assets/images/inventory-items/25_quart_travel_cooler.png';
 	import bluray from '$lib/assets/images/inventory-items/bluray.png';
@@ -9,6 +10,8 @@
 	import { fade } from 'svelte/transition';
 	import { getMockInventoryItems, type InventoryItem } from '../inventory';
 
+	let toggleAnimations = $derived(allyState.toggleAnimations);
+
 	async function fetchInventoryItem(): Promise<InventoryItem | null> {
 		const pathTokens = window.location.pathname.split('/');
 
@@ -17,7 +20,7 @@
 		return getMockInventoryItems().find((i) => i.id === itemId) || null;
 	}
 
-    // REVIEW: revisit this when backend storage impl'd, for now quick n ez
+	// REVIEW: revisit this when backend storage impl'd, for now quick n ez
 	function getImage(itemName: string | undefined): string {
 		if (itemName === '2019 Macbook Pro 16GB') {
 			return macbook;
@@ -38,7 +41,7 @@
 	}
 </script>
 
-<article transition:fade>
+<article transition:fade={{ duration: toggleAnimations ? 400 : 0 }}>
 	<div>
 		{#await fetchInventoryItem()}
 			<p>Loading...</p>
