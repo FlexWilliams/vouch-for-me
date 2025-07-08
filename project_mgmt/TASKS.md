@@ -72,7 +72,7 @@ Verified By cube on: 6/30/25
 
 <br>
 
-## VOUCH-004 - View invitee inventory or profile setup (non-func, display only)
+## (Complete) VOUCH-004 - View invitee inventory or profile setup (non-func, display only)
 
 ### Description:
 

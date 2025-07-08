@@ -18,9 +18,9 @@
 
 [Tasks](./TASKS.md)
 
-### Current Task: View invitee inventory or profile setup (non-func, display only)
+### Current Task: View invitee inventory
 
-[Link](./TASKS.md#vouch-004---view-invitee-inventory-or-profile-setup-non-func-display-only)
+[Link](./TASKS.md#vouch-005---view-invitee-inventory)
 
 ## Tech Debt
 
