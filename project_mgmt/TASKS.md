@@ -89,7 +89,7 @@ Verified By cube on: 7/7/25
 
 <br>
 
-## VOUCH-005 - View invitee inventory
+## (Complete) VOUCH-005 - View invitee inventory
 
 ### Description:
 
@@ -99,7 +99,7 @@ mock up cards, list/detail views, request items (not saved)
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 7/8/25
 
 <br>
 

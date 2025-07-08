@@ -18,9 +18,9 @@
 
 [Tasks](./TASKS.md)
 
-### Current Task: View invitee inventory
+### Current Task: Profile Setup
 
-[Link](./TASKS.md#vouch-005---view-invitee-inventory)
+[Link](./TASKS.md#vouch-006---profile-setup)
 
 ## Tech Debt
 
