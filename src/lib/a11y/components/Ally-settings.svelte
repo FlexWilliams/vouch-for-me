@@ -40,6 +40,8 @@
 
 	.ally-settings-container {
 		position: absolute;
+		top: 0;
+		left: 0;
 		padding: 2rem;
 		background-color: #cdcdcded;
 		z-index: 2; // TODO: make constant
