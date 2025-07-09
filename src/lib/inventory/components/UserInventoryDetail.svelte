@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { allyState } from '$lib/a11y/state/ally-state.svelte';
-
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { getMockInventoryItems, type InventoryItem } from '../inventory';
 
@@ -20,10 +20,28 @@
 		ToastrService.alert(`Request Sent!`);
 		goto('../inventory');
 	}
+
+	function setFocus(): void {
+		const closeButton = document.getElementById('close-button');
+		if (closeButton) {
+			closeButton.focus();
+		}
+	}
+
+	onMount(() => {
+		setFocus();
+	});
 </script>
 
 <article transition:fade={{ duration: toggleAnimations ? 400 : 0 }}>
 	<div>
+		<button
+			id="close-button"
+			aria-label="Go back to Ian's Inventory"
+			class="close"
+			onclick={() => window.history.back()}>X</button
+		>
+
 		{#await fetchInventoryItem()}
 			<p>Loading...</p>
 		{:then item}
@@ -40,7 +58,7 @@
 			</p>
 		{/await}
 
-		<button onclick={handleRentItemClick}>Request to Rent</button>
+		<button onclick={handleRentItemClick} class="rent">Request to Rent</button>
 	</div>
 </article>
 
@@ -69,30 +87,41 @@
 			padding: 2rem 1rem;
 
 			h2 {
+				margin-top: 1rem;
 				font-size: 1.5rem;
 				text-decoration: underline;
 				text-align: center;
 			}
 
 			img {
-				margin: 2rem 0;
+				margin: 1.5rem 0;
 				max-height: 9rem;
 				max-width: 16rem;
 			}
 
 			p {
 				padding: 0 2rem;
-				max-height: 24rem;
+				max-height: 16rem;
 				overflow-y: auto;
 			}
 
-			button {
+			button.rent {
 				position: absolute;
 				bottom: 1rem;
 				right: 1rem;
 				min-width: 10rem;
 				min-height: 3rem;
 				border-radius: 0.5rem;
+				background-color: #81d4fa;
+			}
+
+			button.close {
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				width: 2rem;
+				height: 2rem;
+				border-radius: 5rem;
 				background-color: #81d4fa;
 			}
 		}

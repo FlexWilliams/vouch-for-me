@@ -108,8 +108,9 @@
 
 	ul {
 		display: flex;
-		overflow: auto;
-		padding: 1rem 0;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding: 1.5rem 0;
 	}
 
 	li {
@@ -120,6 +121,14 @@
 		margin-right: 1rem;
 		border-radius: 0.5rem;
 		font-size: 1.25rem;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		&:only-child {
+			width: 100%;
+		}
 
 		button {
 			&:first-of-type {

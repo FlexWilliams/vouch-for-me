@@ -44,8 +44,8 @@
 		position: absolute;
 		bottom: 2rem;
 		right: 2rem;
-		width: 4rem;
-		height: 4rem;
+		width: 3rem;
+		height: 3rem;
 		border: none;
 		border-radius: 10rem;
 	}
