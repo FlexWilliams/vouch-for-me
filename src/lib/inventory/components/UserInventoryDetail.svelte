@@ -95,7 +95,9 @@
 
 			img {
 				margin: 1.5rem 0;
+				min-height: 9rem;
 				max-height: 9rem;
+				min-width: 16rem;
 				max-width: 16rem;
 			}
 

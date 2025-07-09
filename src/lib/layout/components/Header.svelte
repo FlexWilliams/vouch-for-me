@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { allyState } from '$lib/a11y/state/ally-state.svelte';
 	import type { User } from '$lib/user/user';
 	import { VibrationService } from '$lib/utils/vibration-service';
+	import { onMount } from 'svelte';
 
 	interface HeaderProps {
 		user: Partial<User> | undefined;
@@ -12,14 +13,45 @@
 
 	let toggleAnimations = $derived(allyState.toggleAnimations);
 
+	let currentRouteId: string | null = $state(null);
+
 	async function handleSignOut(): Promise<void> {
 		VibrationService.vibrate();
+		window.sessionStorage.removeItem('vouchForMeSessionId');
 		await goto('/auth/sign-out', { invalidateAll: true });
 	}
+
+	function handleUserProfileButtonClick(): void {
+		if (currentRouteId !== '/user/profile') {
+			goto('/user/profile');
+		}
+	}
+
+	onMount(() => {
+		afterNavigate((e) => {
+			const route = e.to;
+			if (route) {
+				currentRouteId = route.route.id;
+			}
+		});
+	});
 </script>
 
 {#if user?.id}
-	<button type="submit" onclick={() => handleSignOut()}>Sign Out</button>
+	<nav>
+		<ul>
+			<li>
+				<button
+					class="user-profile"
+					aria-label="Go to User Profile page"
+					onclick={handleUserProfileButtonClick}
+				></button>
+			</li>
+			<li>
+				<button class="submit" type="submit" onclick={() => handleSignOut()}>Sign Out</button>
+			</li>
+		</ul>
+	</nav>
 {:else}
 	<a href="/"><h1><span class:no-animate={!toggleAnimations}>Vouch for Me</span></h1></a>
 {/if}
@@ -47,13 +79,34 @@
 		}
 	}
 
-	button {
-		position: absolute;
-		top: 2rem;
-		right: 2rem;
+	nav {
+		height: 100%;
+		display: flex;
+		width: 100%;
+
+		ul {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			padding: 0 2rem;
+			width: 100%;
+		}
+	}
+
+	button.user-profile {
+		width: 5rem;
+		height: 5rem;
+		border-radius: 10rem;
+		background-color: white;
+		background-image: url('$lib/assets/images/avatars/avatar.png');
+		background-position: center; /* Center the image */
+		background-repeat: no-repeat; /* Do not repeat the image */
+		background-size: cover;
+	}
+
+	button.submit {
 		max-width: 10rem;
 		display: flex;
-		align-self: flex-end;
 		padding: 0.25rem 1rem;
 		background-color: white;
 		border-radius: 0.5rem;

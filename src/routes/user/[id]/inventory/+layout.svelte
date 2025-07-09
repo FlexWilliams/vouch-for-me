@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { allyState } from '$lib/a11y/state/ally-state.svelte';
 	import { getMockInventoryItems, type InventoryItem } from '$lib/inventory/inventory';
 	import { debounceTime, Subject, Subscription, tap } from 'rxjs';
 	import { onDestroy, onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	let { children } = $props();
 
 	let inventoryItems = $state(getMockInventoryItems());
+
+	let toggleAnimations = $derived(allyState.toggleAnimations);
 
 	const subscriptions: Subscription[] = [];
 
@@ -69,7 +73,11 @@
 	});
 </script>
 
-<div class="user-inventory-page">
+<div
+	class="user-inventory-page"
+	in:fade={{ duration: toggleAnimations ? 400 : 0, delay: toggleAnimations ? 200 : 0 }}
+	out:fade={{ duration: toggleAnimations ? 200 : 0 }}
+>
 	<h2>Ian's Inventory</h2>
 
 	<form name="inventory-search">
