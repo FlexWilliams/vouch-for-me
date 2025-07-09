@@ -1,4 +1,16 @@
-// TODO: remove `inventory` from all phrasising and naming, find better word (even make one up!)
+// TODO: remove `inventory` from all phrasing and naming, find better word (even make one up!)
+
+import macbook from '$lib/assets/images/inventory-items/2019_macbook_pro_16gb.png';
+import cooler from '$lib/assets/images/inventory-items/25_quart_travel_cooler.png';
+import bluray from '$lib/assets/images/inventory-items/bluray.png';
+import nintendo_switch from '$lib/assets/images/inventory-items/nintendo_switch.png';
+import pressure_washer from '$lib/assets/images/inventory-items/pressure_washer.png';
+import project_debut from '$lib/assets/images/inventory-items/project_debut_record_player.jpg';
+import raspberry from '$lib/assets/images/inventory-items/raspberry_pi_4_model_b.png';
+import rice_cooker from '$lib/assets/images/inventory-items/rice_cooker.png';
+import rotary_hammer from '$lib/assets/images/inventory-items/rotary_hammer.png';
+import staple_gun from '$lib/assets/images/inventory-items/staple_gun.png';
+import yamaha from '$lib/assets/images/inventory-items/yamaha.png';
 
 export interface InventoryItem {
 	id: string;
@@ -18,7 +30,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Rotary Hammer',
 		tags: ['DIY', 'Construction', 'Home Repairs', 'Landscaping', 'Remodeling'],
 		trustLevel: 7,
-		imageName: 'rotary_hammer.png'
+		imageName: rotary_hammer
 	});
 
 	items.push({
@@ -27,7 +39,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Rice Cooker',
 		tags: ['Cooking', 'Food'],
 		trustLevel: 1,
-		imageName: 'rice_cooker.png'
+		imageName: rice_cooker
 	});
 
 	items.push({
@@ -36,7 +48,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Pressure Washer',
 		tags: ['Cleaning', 'Water'],
 		trustLevel: 5,
-		imageName: 'pressure_washer.png'
+		imageName: pressure_washer
 	});
 
 	items.push({
@@ -45,7 +57,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Staple Gun',
 		tags: ['DIY', 'Home Repairs'],
 		trustLevel: 3,
-		imageName: 'staple_gun.png'
+		imageName: staple_gun
 	});
 
 	items.push({
@@ -54,7 +66,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'External USB Blu-ray Drive (RW)',
 		tags: ['USB', 'Blu-ray', 'Bluray'],
 		trustLevel: 5,
-		imageName: 'bluray.png'
+		imageName: bluray
 	});
 
 	items.push({
@@ -63,7 +75,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Yamaha PSR-353 61-Key Digital Keyboard',
 		tags: ['Yamaha', 'Keyboard'],
 		trustLevel: 7,
-		imageName: 'yamaha.png'
+		imageName: yamaha
 	});
 
 	items.push({
@@ -72,7 +84,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: '2019 Macbook Pro 16GB',
 		tags: ['Computer', 'Laptop', 'MacOs'],
 		trustLevel: 8,
-		imageName: '2019_macbook_pro_16gb.png'
+		imageName: macbook
 	});
 
 	items.push({
@@ -81,7 +93,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Raspberry Pi 4 Model B',
 		tags: ['Computer', 'Microcontroller', 'IoT', 'Robotics'],
 		trustLevel: 5,
-		imageName: 'raspberry_pi_4_model_b.png'
+		imageName: raspberry
 	});
 
 	items.push({
@@ -90,7 +102,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Nintendo Switch w/ Assorted Games',
 		tags: ['Gaming', 'Friends'],
 		trustLevel: 7,
-		imageName: 'nintendo_switch.png'
+		imageName: nintendo_switch
 	});
 
 	items.push({
@@ -99,7 +111,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: '25 Quart Travel Cooler',
 		tags: ['Road Trip', 'Camping', 'Picnic', 'Outdoors', 'Fishing', 'BBQ'],
 		trustLevel: 6,
-		imageName: '25_quart_travel_cooler.png'
+		imageName: cooler
 	});
 
 	items.push({
@@ -108,7 +120,7 @@ export function getMockInventoryItems(): InventoryItem[] {
 		name: 'Project Debut Record Player',
 		tags: ['Vinyl', 'Music', 'Vintage'],
 		trustLevel: 9,
-		imageName: 'project_debut_record_player.jpg'
+		imageName: project_debut
 	});
 
 	return items;

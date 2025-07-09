@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { getMockInventoryItems, type InventoryItem } from '$lib/inventory/inventory.js';
+	import { getMockInventoryItems, type InventoryItem } from '$lib/inventory/inventory';
 	import { debounceTime, Subject, Subscription, tap } from 'rxjs';
 	import { onDestroy, onMount } from 'svelte';
 
@@ -114,11 +114,12 @@
 
 	li {
 		position: relative;
-		min-width: 10rem;
-		height: 10rem;
+		min-width: 12rem;
+		height: 12rem;
 		background-color: white;
 		margin-right: 1rem;
 		border-radius: 0.5rem;
+		font-size: 1.25rem;
 
 		button {
 			&:first-of-type {
@@ -149,5 +150,7 @@
 		background-color: #81d4fa; // TODO: store in color.scss!
 		border-radius: 0.5rem;
 		width: 4rem;
+		height: 2rem;
+		font-size: 1rem;
 	}
 </style>

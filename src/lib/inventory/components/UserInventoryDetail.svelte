@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { allyState } from '$lib/a11y/state/ally-state.svelte';
-	import macbook from '$lib/assets/images/inventory-items/2019_macbook_pro_16gb.png';
-	import cooler from '$lib/assets/images/inventory-items/25_quart_travel_cooler.png';
-	import bluray from '$lib/assets/images/inventory-items/bluray.png';
-	import nintendo_switch from '$lib/assets/images/inventory-items/nintendo_switch.png';
-	import pressure_washer from '$lib/assets/images/inventory-items/pressure_washer.png';
+
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
 	import { fade } from 'svelte/transition';
 	import { getMockInventoryItems, type InventoryItem } from '../inventory';
@@ -18,21 +14,6 @@
 		let itemId = pathTokens[pathTokens.length - 1];
 
 		return getMockInventoryItems().find((i) => i.id === itemId) || null;
-	}
-
-	// REVIEW: revisit this when backend storage impl'd, for now quick n ez
-	function getImage(itemName: string | undefined): string {
-		if (itemName === '2019 Macbook Pro 16GB') {
-			return macbook;
-		} else if (itemName === '25 Quart Travel Cooler') {
-			return cooler;
-		} else if (itemName === 'Nintendo Switch w/ Assorted Games') {
-			return nintendo_switch;
-		} else if (itemName === 'External USB Blu-ray Drive (RW)') {
-			return bluray;
-		} else {
-			return pressure_washer;
-		}
 	}
 
 	function handleRentItemClick(): void {
@@ -48,7 +29,7 @@
 		{:then item}
 			<h2>Ian's {item?.name}</h2>
 
-			<img src={getImage(item?.name)} alt={`Ian's ${item?.name}`} />
+			<img src={item?.imageName} alt={`Ian's ${item?.name}`} />
 
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
