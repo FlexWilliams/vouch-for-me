@@ -52,6 +52,14 @@
 		);
 	}
 
+	function clearSearchText(): void {
+		const search = document.getElementById('search') as HTMLInputElement;
+		if (search) {
+			search.value = '';
+			_inventorySearchText$.next('');
+		}
+	}
+
 	onMount(() => {
 		listenForTextChanges();
 	});
@@ -67,7 +75,17 @@
 	<form name="inventory-search">
 		<div class="form-control">
 			<label for="search">Search</label>
-			<input id="search" type="text" name="search" onkeyup={handleSearchTextChange} />
+			<div class="search-bar">
+				<input id="search" type="text" name="search" onkeyup={handleSearchTextChange} />
+				<div>
+					<button
+						type="button"
+						class="clear"
+						aria-label="Clear search text?"
+						onclick={clearSearchText}>X</button
+					>
+				</div>
+			</div>
 		</div>
 	</form>
 
@@ -149,6 +167,7 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
+		text-align: center;
 	}
 
 	button.rent {
@@ -161,5 +180,32 @@
 		width: 4rem;
 		height: 2rem;
 		font-size: 1rem;
+	}
+
+	.search-bar {
+		position: relative;
+		width: 100%;
+
+		input {
+			width: 100%;
+		}
+
+		div {
+			position: absolute;
+			height: 100%;
+			top: 0;
+			right: 0.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			button {
+				width: 1.5rem;
+				height: 1.5rem;
+				border-radius: 5rem;
+				background-color: #5d5d5d;
+				color: white;
+			}
+		}
 	}
 </style>
