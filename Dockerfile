@@ -9,6 +9,8 @@ COPY pnpm-lock.yaml /usr/src/app
 RUN npm install -g pnpm
 RUN pnpm install
 
+ENV BODY_SIZE_LIMIT=Infinity
+
 EXPOSE 3000
 
 CMD ["node", "build"]

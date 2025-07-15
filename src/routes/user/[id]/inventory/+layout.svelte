@@ -81,41 +81,43 @@
 	in:fade={{ duration: toggleAnimations ? 400 : 0, delay: toggleAnimations ? 200 : 0 }}
 	out:fade={{ duration: toggleAnimations ? 200 : 0 }}
 >
-	<h2>Ian's Inventory</h2>
+	<div style="position: relative;height: 100%;">
+		<h2>Ian's Inventory</h2>
 
-	<form name="inventory-search">
-		<div class="form-control">
-			<label for="search">Search</label>
-			<div class="search-bar">
-				<input id="search" type="text" name="search" onkeyup={handleSearchTextChange} />
-				<div>
-					<button
-						type="button"
-						class="clear"
-						aria-label="Clear search text?"
-						onclick={clearSearchText}>X</button
-					>
+		<form name="inventory-search">
+			<div class="form-control">
+				<label for="search">Search</label>
+				<div class="search-bar">
+					<input id="search" type="text" name="search" onkeyup={handleSearchTextChange} />
+					<div>
+						<button
+							type="button"
+							class="clear"
+							aria-label="Clear search text?"
+							onclick={clearSearchText}>X</button
+						>
+					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
 
-	<ul>
-		{#each inventoryItems as item}
-			<li>
-				<button onclick={(evt) => handleInventoryItemClick(evt)}><span>{item.name}</span></button>
-				<button class="rent" onclick={() => handleRentClick(item.id)}>Rent</button>
-			</li>
-		{:else}
-			<li class="no-items-match-criteria">No items match your search criteria</li>
-		{/each}
-	</ul>
+		<ul>
+			{#each inventoryItems as item}
+				<li>
+					<button onclick={(evt) => handleInventoryItemClick(evt)}><span>{item.name}</span></button>
+					<button class="rent" onclick={() => handleRentClick(item.id)}>Rent</button>
+				</li>
+			{:else}
+				<li class="no-items-match-criteria">No items match your search criteria</li>
+			{/each}
+		</ul>
+
+		{#if isUsersInventory}
+			<button aria-label={`Add new item`} class="add-new">+</button>
+		{/if}
+	</div>
 
 	{@render children()}
-
-	{#if isUsersInventory}
-		<button aria-label={`Add new item`} class="add-new">+</button>
-	{/if}
 </div>
 
 <style lang="scss">
@@ -130,7 +132,6 @@
 		background-color: #eeeeee;
 		padding: 1rem;
 		border-radius: 1rem;
-		position: relative;
 	}
 
 	h2 {

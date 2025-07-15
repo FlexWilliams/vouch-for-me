@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { afterNavigate, goto } from '$app/navigation';
-	import A11ySettingsToggle from '$lib/a11y/components/Ally-settings-toggle.svelte';
+	import AllySettingsToggle from '$lib/a11y/components/Ally-settings-toggle.svelte';
 	import Header from '$lib/layout/components/Header.svelte';
 	import Toastr from '$lib/notification/toastr/components/Toastr.svelte';
 	import { onMount } from 'svelte';
@@ -37,7 +37,7 @@
 </main>
 <footer class:minimized={!onRootPage}></footer>
 
-<A11ySettingsToggle />
+<AllySettingsToggle />
 
 <style lang="scss">
 	@use '../lib/styles/animations/float';

@@ -57,15 +57,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		top: 2rem;
-		margin: 1rem;
+		top: 1.5rem;
 		padding: 1rem;
 		border: none;
 		border-radius: 1rem;
-		width: calc(100% - 2rem);
-		min-width: 20rem;
+		width: calc(100% - 4rem);
 		min-height: 4rem;
 		background-color: #81d4fa;
+		max-width: calc(800px - 4rem);
+		margin: auto;
 
 		box-shadow:
 			rgba(17, 17, 26, 0.1) 0px 8px 24px,

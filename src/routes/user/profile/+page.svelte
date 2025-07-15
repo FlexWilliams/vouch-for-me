@@ -2,6 +2,8 @@
 	import { enhance } from '$app/forms';
 	import { allyState } from '$lib/a11y/state/ally-state.svelte';
 	import checkmark from '$lib/assets/images/checkmark.svg';
+	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
+	import { untrack } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageProps } from './$types';
 
@@ -27,7 +29,9 @@
 
 	$effect(() => {
 		if (form?.success) {
-			console.log(`Success!`);
+			untrack(() => {
+				ToastrService.alert(`Profile Saved!`);
+			});
 		}
 	});
 </script>
