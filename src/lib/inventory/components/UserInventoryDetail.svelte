@@ -128,4 +128,17 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 448px) {
+		article {
+			div {
+				img {
+					min-height: 5rem;
+					max-height: 5rem;
+					min-width: 9rem;
+					max-width: 9rem;
+				}
+			}
+		}
+	}
 </style>

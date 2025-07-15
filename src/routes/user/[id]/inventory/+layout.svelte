@@ -6,11 +6,12 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
 	let inventoryItems = $state(getMockInventoryItems());
 
 	let toggleAnimations = $derived(allyState.toggleAnimations);
+	let isUsersInventory = $state(false);
 
 	const subscriptions: Subscription[] = [];
 
@@ -66,6 +67,8 @@
 
 	onMount(() => {
 		listenForTextChanges();
+
+		isUsersInventory = data?.user?.id === window?.location?.pathname?.split('/')[2];
 	});
 
 	onDestroy(() => {
@@ -107,9 +110,13 @@
 			<li class="no-items-match-criteria">No items match your search criteria</li>
 		{/each}
 	</ul>
-</div>
 
-{@render children()}
+	{@render children()}
+
+	{#if isUsersInventory}
+		<button aria-label={`Add new item`} class="add-new">+</button>
+	{/if}
+</div>
 
 <style lang="scss">
 	@use '$lib/styles/forms/forms.scss';
@@ -123,6 +130,7 @@
 		background-color: #eeeeee;
 		padding: 1rem;
 		border-radius: 1rem;
+		position: relative;
 	}
 
 	h2 {
@@ -215,5 +223,16 @@
 				color: white;
 			}
 		}
+	}
+
+	button.add-new {
+		position: absolute;
+		right: 1rem;
+		bottom: 2rem;
+		background-color: #81d4fa;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 0.5rem;
+		font-weight: bold;
 	}
 </style>

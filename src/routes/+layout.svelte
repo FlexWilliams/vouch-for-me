@@ -35,7 +35,7 @@
 		{@render children()}
 	{/await}
 </main>
-<footer></footer>
+<footer class:minimized={!onRootPage}></footer>
 
 <A11ySettingsToggle />
 
@@ -63,11 +63,15 @@
 	}
 
 	main.maximized {
-		height: 60%;
+		height: 70%;
 	}
 
 	footer {
 		height: 25%;
 		width: 100%;
+	}
+
+	footer.minimized {
+		height: 15%;
 	}
 </style>

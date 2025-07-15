@@ -48,6 +48,9 @@
 				></button>
 			</li>
 			<li>
+				<a href="/"><h1><span class:no-animate={!toggleAnimations}>Vouch for Me</span></h1></a>
+			</li>
+			<li>
 				<button class="submit" type="submit" onclick={() => handleSignOut()}>Sign Out</button>
 			</li>
 		</ul>
@@ -90,6 +93,15 @@
 			justify-content: space-between;
 			padding: 0 2rem;
 			width: 100%;
+
+			li {
+				h1 {
+					font-size: 1.5rem;
+					text-align: center;
+					padding: 0;
+					padding-top: 1rem;
+				}
+			}
 		}
 	}
 
@@ -107,8 +119,41 @@
 	button.submit {
 		max-width: 10rem;
 		display: flex;
-		padding: 0.25rem 1rem;
+		padding: 0.25rem 0.75rem;
 		background-color: white;
 		border-radius: 0.5rem;
+	}
+
+	@media screen and (max-width: 448px) {
+		button.user-profile {
+			width: 3rem;
+			height: 3rem;
+		}
+
+		button.submit {
+			font-size: 0.75rem;
+		}
+
+		nav {
+			ul {
+				li {
+					h1 {
+						font-size: 1.25rem;
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 375px) {
+		nav {
+			ul {
+				li {
+					h1 {
+						font-size: 1rem;
+					}
+				}
+			}
+		}
 	}
 </style>
