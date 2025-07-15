@@ -65,6 +65,10 @@
 		}
 	}
 
+	function addNewItem(): void {
+		goto('./inventory/new');
+	}
+
 	onMount(() => {
 		listenForTextChanges();
 
@@ -113,7 +117,7 @@
 		</ul>
 
 		{#if isUsersInventory}
-			<button aria-label={`Add new item`} class="add-new">+</button>
+			<button aria-label={`Add new item`} class="add-new" onclick={addNewItem}>+</button>
 		{/if}
 	</div>
 
@@ -132,6 +136,7 @@
 		background-color: #eeeeee;
 		padding: 1rem;
 		border-radius: 1rem;
+		position: relative;
 	}
 
 	h2 {

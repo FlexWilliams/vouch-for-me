@@ -103,7 +103,7 @@ Verified By cube on: 7/8/25
 
 <br>
 
-## VOUCH-006 - Profile Setup
+## (Complete) VOUCH-006 - Profile Setup
 
 ### Description:
 
@@ -114,7 +114,7 @@ Verified By cube on: 7/8/25
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 7/15/25
 
 <br>
 
@@ -126,11 +126,13 @@ Verified By <> on:
 
 - simulate on sveltekit backend, try to add delay for ui spinner plz
 - display new item on ui
-- save to local storage for now
+- ~~save to local storage for now~~
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+going to impl supabase, no point in saving to local storage. maybe as a fallback for when save to cloud doesnt work!
+
+Verified By cube on: 7/15/25
 
 <br>
 
