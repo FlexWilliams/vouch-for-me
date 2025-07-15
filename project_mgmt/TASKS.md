@@ -118,7 +118,7 @@ Verified By cube on: 7/15/25
 
 <br>
 
-## VOUCH-007 - Profile Setup Pages - Save form data to svelte backend
+## (Complete) VOUCH-007 - Profile Setup Pages - Save form data to svelte backend
 
 ### Description:
 
@@ -136,7 +136,7 @@ Verified By cube on: 7/15/25
 
 <br>
 
-## VOUCH-008 - sign-in page ad
+## (Complete) VOUCH-008 - sign-in page ad
 
 ### Description:
 
@@ -147,11 +147,11 @@ Verified By cube on: 7/15/25
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Verified By cube on: 7/15/25
 
 <br>
 
-## VOUCH-009 - home page tab/after second-login, landing page
+## (Deferred) VOUCH-009 - home page tab/after second-login, landing page
 
 ### Description:
 
@@ -163,7 +163,9 @@ Verified By <> on:
 
 ### Acceptance Criteria:
 
-Verified By <> on:
+Deferring until auth in place, but this is somewhat mocked currently using the session id and inventory search bar. network is a bit more challenging.
+
+Verified By cube on: 7/15/25
 
 <br>
 

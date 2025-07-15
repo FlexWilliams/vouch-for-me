@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
 	import gearIcon from '$lib/assets/images/gear.svg';
+	import advertisement from '$lib/assets/videos/advertisement.mp4';
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
 	import { VibrationService } from '$lib/utils/vibration-service';
 	import { onMount, untrack } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import type { PageProps } from './$types';
-
 	let email: string = $state('');
 
 	let loading: boolean = $state(false);
@@ -40,6 +40,11 @@
 	});
 </script>
 
+<video src={advertisement} muted autoplay loop>
+	<!-- TODO: generate vtt files per ad -->
+	<track default kind="captions" srclang="en" />
+</video>
+
 <form name="sign-in-form" method="POST" action="?/signInViaEmail">
 	<section class="form-field">
 		{#if form?.emailMissing}
@@ -67,6 +72,11 @@
 
 <style lang="scss">
 	@use '../lib/styles/animations/spin';
+
+	video {
+		margin: 1rem;
+		border-radius: 0.5rem;
+	}
 
 	form {
 		max-width: 36rem;

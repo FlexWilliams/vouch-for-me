@@ -3,7 +3,6 @@
 	import { goto } from '$app/navigation';
 	import { ToastrService } from '$lib/notification/toastr/services/ToastrService';
 	import { untrack } from 'svelte';
-	import type { PageProps } from '../$types';
 
 	let name: string | null = $state(null);
 
@@ -13,7 +12,7 @@
 
 	let saving = $state(false);
 
-	let { form, data }: PageProps = $props();
+	let { form } = $props();
 
 	function handlePhotoChange(event: Event): void {
 		const files: FileList = (event.target as any)?.files;
@@ -50,10 +49,6 @@
 		<h2>Add new item to your inventory</h2>
 		<div class="form-field">
 			<label for="name"><span class="form-field-required">*</span>Name:</label>
-			{#if form?.nameMissing}
-				<p class="form-field-error">The email field is required</p>
-			{/if}
-
 			<input name="name" type="text" bind:value={name} />
 		</div>
 		<div class="form-field">
