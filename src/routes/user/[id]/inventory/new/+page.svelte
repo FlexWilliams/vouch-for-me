@@ -36,71 +36,91 @@
 	});
 </script>
 
-<form
-	name="new-item"
-	class="new-item"
-	method="POST"
-	action="?/addItem"
-	use:enhance
-	enctype="multipart/form-data"
-	onsubmit={() => (saving = true)}
->
-	<h2>Add new item to your inventory</h2>
-	<div class="form-field">
-		<label for="name"><span class="form-field-required">*</span>Name:</label>
-		{#if form?.nameMissing}
-			<p class="form-field-error">The email field is required</p>
-		{/if}
-
-		<input name="name" type="text" bind:value={name} />
-	</div>
-	<div class="form-field">
-		<label for="description">Description (Optional):</label>
-		<textarea name="description" bind:value={description}></textarea>
-	</div>
-	<div class="form-field">
-		<label for="photo">
-			<button
-				type="button"
-				aria-label="Add Photo"
-				onclick={(e) => e?.currentTarget?.parentElement?.click()}
-			>
-				Photo (Optional)
-			</button>
-		</label>
-
-		<input
-			id="photo"
-			name="photo"
-			hidden
-			type="file"
-			accept="image/*"
-			multiple={false}
-			onchange={(evt) => handlePhotoChange(evt)}
-		/>
-	</div>
-
-	<button type="submit" class="submit" disabled={!name || saving}>Add Item</button>
-	<button type="button" aria-label="Close" class="close" onclick={() => window.history.back()}
-		>X</button
+<div class="container">
+	<div class="spacer"></div>
+	<form
+		name="new-item"
+		class="new-item"
+		method="POST"
+		action="?/addItem"
+		use:enhance
+		enctype="multipart/form-data"
+		onsubmit={() => (saving = true)}
 	>
-</form>
+		<h2>Add new item to your inventory</h2>
+		<div class="form-field">
+			<label for="name"><span class="form-field-required">*</span>Name:</label>
+			{#if form?.nameMissing}
+				<p class="form-field-error">The email field is required</p>
+			{/if}
+
+			<input name="name" type="text" bind:value={name} />
+		</div>
+		<div class="form-field">
+			<label for="description">Description (Optional):</label>
+			<textarea name="description" bind:value={description}></textarea>
+		</div>
+		<div class="form-field">
+			<label for="photo">
+				<button
+					type="button"
+					aria-label="Add Photo"
+					onclick={(e) => e?.currentTarget?.parentElement?.click()}
+				>
+					Photo (Optional)
+				</button>
+			</label>
+
+			<input
+				id="photo"
+				name="photo"
+				hidden
+				type="file"
+				accept="image/*"
+				multiple={false}
+				onchange={(evt) => handlePhotoChange(evt)}
+			/>
+		</div>
+
+		<button type="submit" class="submit" disabled={!name || saving}>Add Item</button>
+		<button type="button" aria-label="Close" class="close" onclick={() => window.history.back()}
+			>X</button
+		>
+	</form>
+	<div class="spacer"></div>
+</div>
 
 <style lang="scss">
-	form {
-		height: 100%;
-		max-width: 36rem;
-		align-self: center;
-		width: 100%;
-		padding: 1rem;
+	.container {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		background-color: #eeeeee;
+		top: 0;
+		left: 0;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: 10; //todo: make constant
+	}
+
+	.spacer {
+		height: 15%;
+	}
+
+	form {
+		height: 70%;
+		max-width: 36rem;
+		align-self: center;
+		width: calc(100% - 4rem);
+		padding: 1rem;
+		background-color: #eeeeee;
 		border-radius: 1rem;
+		position: relative;
+		display: flex;
+		flex-direction: column;
 	}
 
 	h2 {

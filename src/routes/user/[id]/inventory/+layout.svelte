@@ -136,7 +136,6 @@
 		background-color: #eeeeee;
 		padding: 1rem;
 		border-radius: 1rem;
-		position: relative;
 	}
 
 	h2 {
