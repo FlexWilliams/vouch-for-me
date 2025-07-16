@@ -185,13 +185,13 @@ Verified By <> on:
 
 <br>
 
-## VOUCH-011 - invite someone ranking guage ui
+## VOUCH-011 - backend impl (supabase, firebase, etc...)
 
 ### Description:
 
 ^^
 
-- thinking a guage ranking ui, 1-7, vibrating, easing motion between values, popping text w/explanation, a11y alternative!
+- hard to proceed further without, but will help solidify app!
 
 ### Acceptance Criteria:
 
@@ -199,13 +199,13 @@ Verified By <> on:
 
 <br>
 
-## VOUCH-012 - backend impl (supabase, firebase, etc...)
+## VOUCH-012 - invite someone ranking guage ui
 
 ### Description:
 
 ^^
 
-- hard to proceed further without, but will help solidify app!
+- thinking a guage ranking ui, 1-7, vibrating, easing motion between values, popping text w/explanation, a11y alternative!
 
 ### Acceptance Criteria:
 

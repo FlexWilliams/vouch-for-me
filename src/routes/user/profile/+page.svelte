@@ -80,7 +80,11 @@
 
 		<button type="submit" class="save" disabled={!userName || saving}>Save</button>
 	</form>
-	<a href={`/user/${data?.user?.id}/inventory`} class="my-inventory">My Inventory</a>
+
+	<div class="user-actions">
+		<a href={`/user/${data?.user?.id}/inventory`} class="my-inventory">My Inventory</a>
+		<a href={`/user/${data?.user?.id}/invites`} class="my-invites">Invites</a>
+	</div>
 </section>
 
 <style lang="scss">
@@ -152,10 +156,14 @@
 			display: none;
 		}
 
-		a.my-inventory {
+		div.user-actions {
 			position: absolute;
 			bottom: 2rem;
 			left: 2rem;
+		}
+
+		a {
+			margin-right: 1rem;
 			text-decoration: underline;
 		}
 	}
